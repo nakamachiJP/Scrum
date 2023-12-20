@@ -14,6 +14,8 @@ class MainScene extends Phaser.Scene {
     this.load.image('background', 'assets/background.png');
     this.load.image('taro', 'assets/taro.png');
     this.load.image('hanako', 'assets/hanako.png')
+    this.load.image('apple', 'assets/fruit_ringo.png')
+    this.load.image('orange', 'assets/fruit_orange.png')
     }
    // シーン初期化処理
     create() {
@@ -23,6 +25,15 @@ class MainScene extends Phaser.Scene {
         const hanako = this.physics.add.sprite(750, 400, 'hanako')
         this.taro = taro
         this.hanako = hanako
+
+        for(let i=0; i<5; i++){
+            let  randx = Phaser.Math.Between(25, 775) ;  // y は　50～750の間の値
+            let randy =  Phaser.Math.Between(25, 425) ;  // y は　50～200の間の値
+            this.add.image(randx, randy , 'orange'); }//ランダムな場所に生成
+            for(let i=0; i<5; i++){
+            let  randa = Phaser.Math.Between(25, 775) ;  // y は　50～750の間の値
+            let randb =  Phaser.Math.Between(25, 425) ;  // y は　50～200の間の値
+            this.add.image(randa, randb , 'apple');} //ランダムな場所に生成
     }
 
     // 毎フレーム実行される繰り返し処理
